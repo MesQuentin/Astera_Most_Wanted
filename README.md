@@ -1,4 +1,4 @@
-# lore_hunter
+# Astera Most Wanted
 
 ## Project setup
 ```
