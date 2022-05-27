@@ -4,13 +4,14 @@
         <h2 class="name">{{name}}</h2>
     </div>
 
-    <img class="icon" v-bind:src="'../assets/monster_icon/' + ID + '.jpg'"/>
+    <img class="icon" v-bind:src= "require('../assets/monster_icon/' + ID + '.jpg')"/>
 
     <div>
       <p class="species">{{species}}</p>
     </div>  
   </div>
 </template>
+
 
 <script>
   export default {
@@ -22,7 +23,7 @@
       },
   }
 
-
+  
 </script>
 
 
@@ -32,21 +33,25 @@
   font-family: 'Monster Hunter';
   src: url('../assets/font/MonsterHunterExpanded.woff') format('woff'),
    url('../assets/font/monsterhunterexpand.ttf') format('truetype');
-  }  
+  };  
 
   .monster_card {
-    margin: 10px;
+    margin: 30px;
     height: 330px;
     width: 330px;
   }
 
-  .monster_card:hover {
+  /* .monster_card:hover {
     box-shadow: 2px 2px 10px lightgrey;
-  }
+  } */
 
   .icon {
-    max-width : 23%;
+    width : 60%;
     height : auto;
+  }
+
+  .monster_card:hover {
+    box-shadow: 2px 2px 2px #b26e87;
   }
 
   .name {
@@ -55,8 +60,10 @@
     color: #fff5e3;
   }
 
-  p {
+  .species {
     font-family: Helvetica;
+    margin-top: 10px;
+    font-size: 23px;
     color: #b26e87;
   }
 

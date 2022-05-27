@@ -1,57 +1,62 @@
 <template>
   <div id="app">
-    <header>
-      <img alt="Astera Most Wanted Logo" src="./assets/logo.png">
-    </header>
+    
+    <Header />
 
+    <div class="gallery-options">
+      <SearchBar :search.sync="search"/>
+      <Sorting :monsterSortType.sync="monsterSortType"/>
+    </div>
+    
     <MonsterGallery />
+  
+    <Footer />
 
-    <footer>
-      <div class="bot_text"> MESQUITA Quentin - 2022 - IMAC 2 </div>
-    </footer>
   </div>
 </template>
 
 
 <script>
-import MonsterGallery from './components/MonsterGallery.vue'
 import Header from './components/Header.vue'
+import MonsterGallery from './components/MonsterGallery.vue'
+import SearchBar from './components/SearchBar.vue'
+import Sorting from './components/Sorting.vue'
+import Footer from './components/Footer.vue'
+
 
 export default {
   name: 'App',
   components: {
-    MonsterGallery
+    Header,
+    MonsterGallery,        
+    SearchBar,
+    Sorting,
+    Footer
+  },
+  data() {
+    return {
+        search: localStorage.getItem("search") || "",   
+    }
   }
 }
 </script>
 
 <style>
 
-#app {
-  
-  font-family: Helvetica, Monster Hunter;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #b26e87;
-  background: black;
-} 
-  
-.header, .footer {
-    width: 100%;
-    background-color: black;
-    align-items: center;
-}
+  html { 
+    background: black; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
 
-.footer {
-    height: 5vh;
-    margin-top: 20px;
-    text-align:center ;
-}
-
-.bot_text {
-    color: #f2f2f2;
-    width: 100%;
+  #app {
+    font-family: Helvetica, Monster Hunter;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     text-align: center;
-}
+    color: #b26e87;
+  }
+
 </style>
